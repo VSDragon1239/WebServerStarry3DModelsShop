@@ -1,0 +1,12 @@
+/* /static/css/products.css */
+body {
+    background-color: #0451e1;
+}
+
+:root {
+    --global-color-element: rgb(0, 32, 194);
+}
+
+h2 {
+    color: #c7ceea;
+}

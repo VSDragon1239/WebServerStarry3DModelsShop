@@ -1,0 +1,11 @@
+/* /static/css/contact.css */
+body {
+    background-color: #e0f7fa;
+}
+:root {
+    --global-color-element: rgb(139, 0, 194);
+}
+
+h2 {
+    color: #8c00ff;
+}

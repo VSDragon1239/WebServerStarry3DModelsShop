@@ -1,0 +1,18 @@
+/* /static/css/about.css */
+body {
+    background-color: #ffebee;
+}
+:root {
+    --global-color-element: rgb(194, 0, 0);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+h2 {
+    color: #b71c1c;
+}
