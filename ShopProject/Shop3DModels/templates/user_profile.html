@@ -9,10 +9,18 @@
 {% endblock %}
 
 {% block content %}
-<h2>Профиль пользователя</h2>
+<h1>Профиль пользователя</h1>
+<h2>Мои заказы</h2>
 <ul>
-    {% for product in vm.products %}
-        <li>{{ product.name }} - {{ product.price }}</li>
+    {% for order in orders %}
+    <li>
+        Заказ #{{ order.id }} на сумму {{ order.total_price }} ₽
+        <p>Статус: {{ order.get_status_display }}</p>
+        <p>Адрес доставки: {{ order.delivery_address }}</p>
+    </li>
+    {% empty %}
+    <p>У вас пока нет заказов.</p>
     {% endfor %}
 </ul>
+
 {% endblock %}

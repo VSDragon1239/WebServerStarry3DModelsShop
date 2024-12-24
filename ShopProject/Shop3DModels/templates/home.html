@@ -6,16 +6,130 @@
 {% block title %}{% trans "Home" %}{% endblock %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/index.css' %}">
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
 {% endblock %}
 
 {% block content %}
     <div class="content">
-        <h2>Welcome to the Home Page</h2>
-        <p>This is the main page of our Django MVVM app.</p>
-        <a href="{% url 'home' %}?lang=ru-ru&x=1">{% trans "RussianLang" %}</a>
-        <a href="{% url 'home' %}?lang=en-us&x=2">{% trans "EnglishLang" %}</a>
-    <br>
-        <h3>Угадай что за переменную я сюда вложил, <br> А вот она: -- {{ p_x }} --</h3>
+        <div class="content-block-1">
+            <div class="sidebar">
+                <div class="sidebar-links">
+                    {% if user.is_authenticated %}
+                    <a class="sidebar-auth" href="{% url 'user_profile' %}">👤</a>
+                    <a class="sidebar-auth" href="{% url 'logout' %}">🚪</a>
+                    {% else %}
+                    <a class="sidebar-auth" href="{% url 'login' %}">🔑 Войти</a>
+                    <a class="sidebar-register" href="{% url 'register' %}">👤</a>
+                    {% endif %}
+                </div>
+                <a href="{% url 'card' %}" class="cart-link">🛒 Корзина ({{ request.session.cart_count|default:0 }})</a>
+                <a href="#" class="sidebar-category">
+                    🔥 Выбрать Категорию
+                </a>
+            </div>
+        </div>
+        <div class="content-block-2">
+            <div class="filter-bar">
+                <a href="#" class="filter-btn">
+                    <span class="icon">⚙️</span>
+                    По популярности
+                </a>
+                <a href="#" class="filter-btn">
+                    <span class="icon">🔍</span>
+                    Все фильтры
+                </a>
+                <a href="#" class="filter-btn">
+                    <span class="icon">📂</span>
+                    Категория
+                </a>
+                <a href="#" class="filter-btn">
+                    <span class="icon">💰</span>
+                    Цена, ₽
+                </a>
+                <a href="#" class="filter-btn">
+                    <span class="icon">⏳</span>
+                    Срок доставки
+                </a>
+                <a href="#" class="filter-btn">
+                    <span class="icon">🏷️</span>
+                    Бренд
+                </a>
+                <a href="#" class="filter-btn active">
+                    <span class="icon">✅</span>
+                    Оригинал
+                </a>
+                <a href="#" class="filter-btn">
+                    <span class="icon">🛠️</span>
+                    Материал изделия
+                </a>
+                <a href="#" class="filter-btn">
+                    <span class="icon">🎨</span>
+                    Тематика
+                </a>
+            </div>
+
+<!--            <div class="items">-->
+<!--                <div class="item">-->
+<!--                    <img src="{% static 'images/example_product_1.png' %}" alt="Product 1">-->
+<!--                    <h2>Название товара 1</h2>-->
+<!--                    <p>Краткое описание товара 1</p>-->
+<!--                    <button>Подробнее</button>-->
+<!--                </div>-->
+<!--                <div class="item">-->
+<!--                    <img src="{% static 'images/example_product_2.png' %}" alt="Product 2">-->
+<!--                    <h2>Название товара 2</h2>-->
+<!--                    <p>Краткое описание товара 2</p>-->
+<!--                    <button>Подробнее</button>-->
+<!--                </div>-->
+<!--                <div class="item">-->
+<!--                    <img src="{% static 'images/example_product_3.png' %}" alt="Product 3">-->
+<!--                    <h2>Название товара 3</h2>-->
+<!--                    <p>Краткое описание товара 3</p>-->
+<!--                    <button>Подробнее</button>-->
+<!--                </div>-->
+<!--                <div class="item">-->
+<!--                    <img src="{% static 'images/example_product_3.png' %}" alt="Product 3">-->
+<!--                    <h2>Название товара 3</h2>-->
+<!--                    <p>Краткое описание товара 3</p>-->
+<!--                    <button>Подробнее</button>-->
+<!--                </div>-->
+<!--                <div class="item">-->
+<!--                    <img src="{% static 'images/example_product_3.png' %}" alt="Product 3">-->
+<!--                    <h2>Название товара 3</h2>-->
+<!--                    <p>Краткое описание товара 3</p>-->
+<!--                    <button>Подробнее</button>-->
+<!--                </div>-->
+<!--                <div class="item">-->
+<!--                    <img src="{% static 'images/example_product_3.png' %}" alt="Product 3">-->
+<!--                    <h2>Название товара 3</h2>-->
+<!--                    <p>Краткое описание товара 3</p>-->
+<!--                    <button>Подробнее</button>-->
+<!--                </div>-->
+<!--            </div>-->
+            <div class="product-grid">
+                {% for product in products %}
+                <a href="{% url 'product' product.category.id product.id %}" class="product-item">
+                    <div class="image-placeholder">
+                        {% if product.image %}
+                        <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                        {% else %}
+                        <p>Нет изображения</p>
+                        {% endif %}
+                    </div>
+                    <div class="product-details">
+                        <div class="product-meta">
+                            <h3 class="product-title">{{ product.name }}</h3>
+                            <p class="product-price">Цена: {{ product.price }} ₽</p>
+                        </div>
+                        <div class="product-meta">
+                            <span class="comments">💬 {{ product.reviews.count }}</span>
+                            <span class="likes">👍 {{ product.rating|floatformat:1 }}</span>
+                            <span class="seller">👤 Автор</span>
+                        </div>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
     </div>
 {% endblock %}

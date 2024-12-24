@@ -5,18 +5,19 @@
 }
 :root {
     --global-color-element: rgb(0, 147, 194);
-    --global-background-color-element: rgb(1, 63, 139);
+    --global-background-color-element: white;
     --global-side-background-color-element: rgba(0, 147, 194, 30%);
 
 
-    --header-background-color: #87d5f3;
-    --header-color-button: rgb(0, 220, 255);
-    --header-color-border-button: rgb(0, 220, 255);
+    --header-background-color: rgb(238, 238, 238);
+    --header-block-2-background-color: rgb(196, 196, 196);
+    --header-color-button: rgb(220, 219, 219);;
+    --header-color-border-button: rgb(120, 119, 119);
 
-    --header-color-button-hover: rgb(0, 147, 194);
+    --header-color-button-hover: rgb(120, 119, 119);
     --header-color-border-button-hover: rgb(0, 147, 194);
 
-    --header-color-button-active: rgb(2, 67, 151);
+    --header-color-button-active: rgb(150, 150, 150);
     --header-color-border-button-active: rgb(2, 67, 151);
 
 
@@ -34,8 +35,8 @@ body {
 header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 10px 10px;
+    margin: 10px 14px;
+    padding: 0;
     color: #fff;
     border-radius: 10px;
     background-color: var(--header-background-color);
@@ -44,32 +45,63 @@ header {
 .header-block-1 {
     display: flex;
     align-items: center;
-    background-color: var(--global-color-element);
     color: #fff;
     border-radius: 10px;
-    padding-right: 20px;
-    padding-left: 20px;
+    padding-right: 10px;
 }
+
+.header-block-1 img {
+    width: 64px; /* Устанавливает ширину */
+    height: auto; /* Автоматическая высота */
+    margin: 10px; /* Отступ от текста */
+    display: inline-block; /* Расположение в строке с текстом */
+    vertical-align: middle; /* Выравнивание с текстом */
+    border-radius: 10px;
+}
+
+.header-block-1 h1 {
+    color: rgb(0, 0, 0);
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 32px;
+    letter-spacing: 0;
+    text-align: left;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
 
 .header-block-2 {
     display: flex;
     align-items: center;
-    background-color: var(--global-side-background-color-element);
+    background-color: var(--header-block-2-background-color);
     border-radius: 10px;
-    padding: 15px;
+    padding: 12px 17px;
+    margin: 5px;
 }
 
 .header-block-2 nav {
     display: flex;
 }
 
+.header-block-2 label input {
+    font-family: "Jura", serif;
+    border: 0  #ccc;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 24px;
+    width: 454px;
+    height: 38px;
+    /*background-color: var(--global-side-background-color-element);*/
+}
+
 .header-block-2 a {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 2px 5px;
-    width: 200px;
-    height: 45px;
+    margin-left: 20px;
+    width: 123px;
+    height: 48px;
 
     border-radius: 10px;
     background: var(--header-color-button);
@@ -96,7 +128,7 @@ header {
 
 main {
     flex-grow: 1;
-    padding: 20px;
+    padding: 0 14px;
 }
 
 footer {

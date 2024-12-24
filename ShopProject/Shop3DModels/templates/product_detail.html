@@ -1,18 +1,27 @@
-<!-- app/templates/products.html -->
 {% extends 'base.html' %}
-{% load static %}
 
-{% block title %}Карточка товара{% endblock %}
-
-{% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/product_detail.css' %}">
-{% endblock %}
+{% block title %}{{ product.name }}{% endblock %}
 
 {% block content %}
-<h2>Карточка товара</h2>
-<ul>
-    {% for product in vm.products %}
-        <li>{{ product.name }} - {{ product.price }}</li>
-    {% endfor %}
-</ul>
+<div class="product-card">
+    <div class="product-image">
+        <img src="{{ product.image.url }}" alt="{{ product.name }}">
+    </div>
+    <div class="product-details">
+        <h3 class="product-title">{{ product.name }}</h3>
+        <p class="product-description">{{ product.description }}</p>
+        <div class="product-meta">
+            <span class="product-price">Цена: {{ product.price }} ₽</span>
+            <span class="product-rating">
+                🌟 {{ product.rating|default:"5.0" }} ({{ product.reviews.count }} отзывов)
+            </span>
+        </div>
+        <div class="product-actions">
+            <form method="post" action="{% url 'add_to_cart' product.id %}">
+                {% csrf_token %}
+                <button type="submit" class="btn-add-to-cart">Добавить в корзину</button>
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock %}

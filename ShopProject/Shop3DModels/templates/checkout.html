@@ -9,10 +9,11 @@
 {% endblock %}
 
 {% block content %}
-<h2>Детали заказа</h2>
-<ul>
-    {% for product in vm.products %}
-        <li>{{ product.name }} - {{ product.price }}</li>
-    {% endfor %}
-</ul>
+<h1>Оформление заказа</h1>
+<form method="post">
+    {% csrf_token %}
+    <textarea name="delivery_address" placeholder="Введите адрес доставки" required></textarea>
+    <button type="submit">Оформить заказ</button>
+</form>
+
 {% endblock %}

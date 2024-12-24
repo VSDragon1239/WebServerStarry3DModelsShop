@@ -7,12 +7,337 @@ body {
 }
 
 .content {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
+    display: flex; /* Сетка для блоков */
+    /*grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); !* Автоматическое масштабирование *!*/
+    gap: 10px; /* Отступы между блоками */
+    padding: 0; /* Внутренние отступы */
+    background-color: var(--global-side-background-color-element); /* Светлый фон */
+    border-radius: 10px; /* Скругление углов */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Тень для визуального выделения */
 }
 
-h2 {
-    color: #00796b;
+
+.content-block-1 {
+    background-color: var(--global-background-color-element); /* Основной фон блока */
+    /*border: 1px solid var(--global-color-element); !* Обводка для блоков *!*/
+    border-radius: 10px; /* Скругленные углы */
+    padding: 10px; /* Внутренний отступ */
+    text-align: center; /* Центрирование текста */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Легкая тень */
+    /*transition: transform 0.2s ease, box-shadow 0.2s ease; !* Плавный эффект при наведении *!*/
+    width: 253px;
+    height: 640px;
+}
+
+
+.content-block-2 {
+    background-color: var(--global-background-color-element); /* Основной фон блока */
+    /*border: 1px solid var(--global-color-element); !* Обводка для блоков *!*/
+    border-radius: 10px; /* Скругленные углы */
+    padding: 10px; /* Внутренний отступ */
+    text-align: center; /* Центрирование текста */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Легкая тень */
+    /*transition: transform 0.2s ease, box-shadow 0.2s ease; !* Плавный эффект при наведении *!*/
+    width: 1592px;
+}
+
+
+/* Sidebar styling */
+.sidebar {
+    /*width: 2500px;*/
+    /*height: 87px;*/
+    /*background-color: var(--header-background-color);*/
+    /*padding: 10px;*/
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Sidebar links container */
+.sidebar-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: var(--header-block-2-background-color);
+    height: 64px;
+}
+
+/* Individual link styling */
+.sidebar-auth {
+    /*flex: 1;*/
+    background-color: var(--header-color-button);
+    color: black;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 24px;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 139px;
+}
+
+.sidebar-register {
+    /*flex: 0;*/
+    background-color: var(--header-color-button);
+    color: black;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 24px;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 44px;
+    height: 44px;
+}
+
+.sidebar-auth:hover {
+    background-color: var(--header-color-button-hover);
+    transform: scale(1.05);
+}
+
+.sidebar-auth:active {
+    background-color: var(--header-color-button-active);
+}
+
+.sidebar-register:hover {
+    background-color: var(--header-color-button-hover);
+    transform: scale(1.05);
+}
+
+.sidebar-register:active {
+    background-color: var(--header-color-button-active);
+}
+
+/* Category link styling */
+.sidebar-category {
+
+    background-color: var(--header-block-2-background-color);
+    color: black;
+    text-decoration: none;
+    padding: 15px;
+    margin: 0;
+    border-radius: 10px;
+    font-size: 18px;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.sidebar-category:hover {
+    background-color: var(--header-color-button-hover);
+    transform: scale(1.05);
+}
+
+.sidebar-category:active {
+    background-color: var(--header-color-button-active);
+}
+
+
+
+
+
+
+.filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    background-color: #f0f0f0;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #dcdcdc;
+
+}
+
+.filter-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    text-decoration: none;
+    font-size: 14px;
+    color: #333;
+    background-color: #e0e0e0;
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: 2px solid #d0d0d0;
+    text-align: center;
+    transition: background-color 0.3s, border-color 0.3s, transform 0.2s;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.filter-btn .icon {
+    font-size: 18px;
+}
+
+.filter-btn:hover {
+    background-color: #d6d6d6;
+    border-color: #b0b0b0;
+    transform: scale(1.03);
+}
+
+.filter-btn.active {
+    background-color: #cce7ff;
+    border-color: #007bff;
+    color: #007bff;
+}
+
+.filter-btn:active {
+    transform: scale(0.97);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+
+
+
+
+/*.items {*/
+/*    display: grid; !* Сетка для блоков *!*/
+/*    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); !* Автоматическое масштабирование *!*/
+/*    gap: 10px; !* Отступы между блоками *!*/
+/*    padding: 10px 0; !* Внутренние отступы *!*/
+/*    !*background-color: var(--global-side-background-color-element); !* Светлый фон *!*!*/
+/*    border-radius: 10px; !* Скругление углов *!*/
+/*    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); !* Тень для визуального выделения *!*/
+/*}*/
+
+/*.item {*/
+/*    background-color: var(--global-background-color-element);*/
+/*    !*border: 1px solid var(--global-color-element);*!*/
+/*    border-radius: 10px;*/
+/*    text-align: center;*/
+/*    padding: 10px;*/
+/*    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);*/
+/*    transition: transform 0.2s ease, box-shadow 0.2s ease;*/
+/*    width: 278px;*/
+/*    height: 278px;*/
+/*}*/
+
+/*.item:hover {*/
+/*    transform: scale(1.05);*/
+
+/*}*/
+
+/*.item img {*/
+/*    max-width: 100%;*/
+/*    height: auto;*/
+/*    border-radius: 10px;*/
+/*}*/
+
+/*.item h2 {*/
+/*    font-size: 18px;*/
+/*    color: var(--global-color-element);*/
+/*    margin: 10px 0;*/
+/*}*/
+
+/*.item p {*/
+/*    font-size: 14px;*/
+/*    color: #555;*/
+/*    margin: 10px 0;*/
+/*}*/
+
+/*.item button {*/
+/*    background-color: var(--global-color-element);*/
+/*    color: #fff;*/
+/*    padding: 10px 20px;*/
+/*    border: none;*/
+/*    border-radius: 5px;*/
+/*    cursor: pointer;*/
+/*    transition: background-color 0.3s ease;*/
+/*}*/
+
+/*.item button:hover {*/
+/*    background-color: var(--header-color-button-hover);*/
+/*}*/
+
+.product-grid {
+    display: grid; /* Сетка для блоков */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Автоматическое масштабирование */
+    /*gap: 10px; !* Отступы между блоками *!*/
+    /*padding: 10px 0; !* Внутренние отступы *!*/
+    /*background-color: var(--global-side-background-color-element); !* Светлый фон *!*/
+    border-radius: 10px; /* Скругление углов */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Тень для визуального выделения */
+}
+
+.product-item {
+    position: relative; /* Для размещения всплывающего блока */
+    text-decoration: none; /* Убираем стандартные стили ссылок */
+    color: inherit; /* Наследуем цвет текста */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #003d66; /* Цвет карточки */
+    border: 2px solid #007bff;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 300px; /* Высота карточки */
+    width: 300px;
+    margin: 10px 0;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.image-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #ff69b4, #9400d3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.product-details {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 90%;
+    padding: 10px 20px;
+    background: rgba(0, 0, 0, 0.7); /* Тёмный фон с прозрачностью */
+    color: #fff;
+    transform: translateY(100%); /* Прячем блок за пределами карточки */
+    transition: transform 0.3s ease-in-out;
+    text-align: left;
+}
+
+.product-item:hover .product-details {
+    transform: translateY(0); /* Показываем блок при наведении */
+}
+
+.product-title {
+    font-size: 18px;
+    margin: 0;
+    color: #00ffcc; /* Яркий акцент */
+}
+
+.product-price {
+    font-size: 18px;
+    margin: 5px 0;
+    color: #00ffcc;
+}
+
+.product-meta {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    font-size: 18px;
+    color: #d0d0d0;
+
 }
