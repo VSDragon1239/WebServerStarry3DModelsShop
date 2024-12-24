@@ -1,10 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Панель администратора</title>
-</head>
-<body>
+<!-- app/templates/products.html -->
+{% extends 'base.html' %}
+{% load static %}
 
-</body>
-</html>
+{% block title %}Панель Администратора{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/admin_panel.css' %}">
+{% endblock %}
+
+{% block content %}
+<h2>Панель Администратора</h2>
+<ul>
+    {% for product in vm.products %}
+        <li>{{ product.name }} - {{ product.price }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

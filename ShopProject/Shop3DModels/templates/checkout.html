@@ -1,10 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Детали заказа</title>
-</head>
-<body>
+<!-- app/templates/checkout.html -->
+{% extends 'base.html' %}
+{% load static %}
 
-</body>
-</html>
+{% block title %}Детали заказа{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/checkout.css' %}">
+{% endblock %}
+
+{% block content %}
+<h2>Детали заказа</h2>
+<ul>
+    {% for product in vm.products %}
+        <li>{{ product.name }} - {{ product.price }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

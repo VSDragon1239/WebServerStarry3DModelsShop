@@ -1,10 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>О политике использования</title>
-</head>
-<body>
+<!-- app/templates/products.html -->
+{% extends 'base.html' %}
+{% load static %}
 
-</body>
-</html>
+{% block title %}О политике использования{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/checkout.css' %}">
+{% endblock %}
+
+{% block content %}
+<h2>О политике использования</h2>
+<ul>
+    {% for product in vm.products %}
+        <li>{{ product.name }} - {{ product.price }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
