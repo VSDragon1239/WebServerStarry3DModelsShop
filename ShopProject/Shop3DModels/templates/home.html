@@ -22,7 +22,7 @@
                     <a class="sidebar-register" href="{% url 'register' %}">👤</a>
                     {% endif %}
                 </div>
-                <a href="{% url 'card' %}" class="cart-link">🛒 Корзина ({{ request.session.cart_count|default:0 }})</a>
+                <a href="{% url 'card' %}" class="sidebar-category">🛒 Корзина ({{ request.session.cart_count|default:0 }})</a>
                 <a href="#" class="sidebar-category">
                     🔥 Выбрать Категорию
                 </a>
